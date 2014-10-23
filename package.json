@@ -1,6 +1,6 @@
 {
   "name": "express-static",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,5 +22,8 @@
   "homepage": "https://github.com/song940/express-static",
   "devDependencies": {
     "express": "^4.9.6"
+  },
+  "dependencies": {
+    "mime": "*"
   }
 }
