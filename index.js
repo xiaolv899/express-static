@@ -16,6 +16,7 @@ Static.prototype.send = function(req, res, next){
 		if(err){
 			return next((~[ 'ENOENT' ].indexOf(err.code)) ? null : err);
 		}
+		if(stat.isDirectory()) return res.redirect(pathname + '/'); 
 		var type = mime.lookup(filename);
 		var charset = mime.charsets.lookup(type);
 		res.setHeader('Content-Type'	, type + (charset ? '; charset=' + charset : '' ));
@@ -28,7 +29,6 @@ Static.prototype.send = function(req, res, next){
 
 module.exports = function(root, options){
 	options = options || {};
-	console.log(root);
 	options.root = root;
 	var static = new Static(options);	
 	return function(req, res, next){
