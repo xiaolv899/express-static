@@ -11,6 +11,7 @@ Static.prototype.send = function(req, res, next){
 	var uri = url.parse(req.url);
 	var pathname = uri.pathname;
 	if(/\/$/.test(pathname)) pathname += 'index.html';
+	if(this.options.decodeURI) pathname = decodeURIComponent(pathname);
 	var filename = path.join(this.options.root, pathname);
 	fs.stat(filename, function(err, stat){
 		if(err){
