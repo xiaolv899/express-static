@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/song940/express-static",
   "devDependencies": {
-    "express": "^4.9.6"
+    "express": "^4.9.6",
+    "express-log": "^1.0.1"
   },
   "dependencies": {
     "mime": "*"
