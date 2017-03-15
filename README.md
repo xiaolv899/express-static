@@ -1,24 +1,23 @@
 ## express-static ![npm](https://badge.fury.io/js/express-static.png)
 
-
+> serve static files for express
 
 ### Installation
 ````
 $ npm install express-static --save
 ````
 
-
 ### Example
 ````javascript
-var express = require('express');
-var static  = require('express-static');
+const express = require('express');
+const serve   = require('express-static');
 
-var app = express();
+const app = express();
 
-app.use(static(__dirname + '/public'));
+app.use(serve(__dirname + '/public'));
 
-var server = app.listen(3000, function(){
-	console.log('server is running at %s', server.address().port);
+const server = app.listen(3000, function(){
+  console.log('server is running at %s', server.address().port);
 });
 
 ````
@@ -54,5 +53,3 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ---
-![docor](https://cdn1.iconfinder.com/data/icons/windows8_icons_iconpharm/26/doctor.png)
-built upon love by [docor](https://github.com/turingou/docor.git) v0.1.3
