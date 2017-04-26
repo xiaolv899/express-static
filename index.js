@@ -20,10 +20,11 @@ module.exports = function(root, options){
    var filename = url.parse(req.url).pathname;
    if(options.decodeURI) filename = decodeURIComponent(filename);
    if(/\/$/.test(filename)) filename += options.index;
+   var relativename = filename;
    filename = path.join(path.resolve(root), filename);
    fs.stat(filename, function(err, stat){
      if(err) return next((~[ 'ENOENT' ].indexOf(err.code)) ? null : err);
-     if(stat.isDirectory()) return res.redirect(filename + '/'); 
+     if(stat.isDirectory()) return res.redirect(relativename + '/'); 
      var type = mime.lookup(filename);
      var charset = mime.charsets.lookup(type);
      res.setHeader('Content-Type'  , type + (charset ? '; charset=' + charset : '' ));
